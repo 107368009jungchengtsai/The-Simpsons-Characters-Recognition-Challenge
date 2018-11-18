@@ -86,6 +86,7 @@
     history=model.fit(x_train, y_train, epochs=epochs, batch_size=batch_size, shuffle=True, verbose=1, validation_data=(x_test, y_test),     callbacks=[TB])
     score = model.evaluate(x_test, y_test, verbose=0)
     print(score)
+  ![image](https://github.com/107368009jungchengtsai/The-Simpsons-Characters-Recognition-Challenge/blob/master/process.png)
 ## 9.看val_acc,acc和val_loss,loss圖表
     import matplotlib.pyplot as plt
     plt.plot(history.history['val_acc'])
