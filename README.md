@@ -45,11 +45,11 @@
     labels = np_utils.to_categorical(labels, num_classes=20)
     np.savetxt('listdir.txt', listdir, delimiter = ' ',fmt="%s")
     return images, labels
-3.split train_data/valid_data
+##3.split train_data/valid_data
 
     images, labels=read_main('train/characters-20')
     x_train, x_test, y_train, y_test = train_test_split(images, labels, test_size=0.1)
-4.#印出x_train,y_train和x_test,y_test資料數量#
+##4.印出x_train,y_train和x_test,y_test資料數量
 
     print(x_train.shape)
     print(y_train.shape)
