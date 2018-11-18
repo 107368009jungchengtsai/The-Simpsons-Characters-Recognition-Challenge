@@ -55,3 +55,59 @@
     print(y_train.shape)
     print(x_test.shape)
     print(y_test.shape)
+## 5.訓練出來的值乘上權重
+
+    model = Sequential()
+    model.add(Conv2D(64, kernel_size=3, padding='same', activation='relu', input_shape=x_train.shape[1:]))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.5))
+    
+    model.add(Conv2D(128, kernel_size=3, padding='same', activation='relu'))
+    model.add(Conv2D(128, kernel_size=3, padding='same', activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.5))
+
+    model.add(Conv2D(256, kernel_size=3, padding='same', activation='relu'))
+    model.add(Conv2D(256, kernel_size=3, padding='same', activation='relu'))
+    model.add(Conv2D(256, kernel_size=3, padding='same', activation='relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(0.5))
+
+    model.add(Flatten())
+    model.add(Dense(512,activation='relu'))
+    model.add(Dropout(0.5))
+    model.add(Dense(20,activation='softmax'))
+## 6.查看model
+    model.summary()
+    model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
+## 7.正規化
+    
+    datagen = ImageDataGenerator(zoom_range=0.2, width_shift_range=0.2, height_shift_range=0.2, horizontal_flip=True)
+    datagen.fit(x_train)
+## 8.設定跑的次數，和程式跑的過程
+    
+    epochs = 150
+    batch_size = 256
+    file_name = str(epochs) + '_' + str(batch_size)
+    TB = TensorBoard(log_dir='logs/'+file_name)
+    history=model.fit(x_train, y_train, epochs=epochs, batch_size=batch_size, shuffle=True, verbose=1, validation_data=(x_test, y_test),     callbacks=[TB])
+    score = model.evaluate(x_test, y_test, verbose=0)
+    print(score)
+## 9.看val_acc,acc和val_loss,loss圖表
+    
+    import matplotlib.pyplot as plt
+    plt.plot(history.history['val_acc'])
+    plt.plot(history.history['acc'])
+    plt.title('model accuracy')
+    plt.ylabel('accuracy')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'test'], loc='upper left')
+    plt.show()
+
+    plt.plot(history.history['val_loss'])
+    plt.plot(history.history['loss'])
+    plt.title('model loss')
+    plt.ylabel('loss')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'test'], loc='upper left')
+    plt.show()
