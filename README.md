@@ -49,7 +49,7 @@
 
     images, labels=read_main('train/characters-20')
     x_train, x_test, y_train, y_test = train_test_split(images, labels, test_size=0.1)
-##4.印出x_train,y_train和x_test,y_test資料數量##
+##印出x_train,y_train和x_test,y_test資料數量
 
     print(x_train.shape)
     print(y_train.shape)
