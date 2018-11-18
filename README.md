@@ -111,10 +111,10 @@
     model.save('model.h5')
 ## 11.test_data讀檔
     del model
-import numpy as np
-import pandas
-import pandas as pd
-def read_images_labels(path,i):
+    import numpy as np
+    import pandas
+    import pandas as pd
+    def read_images_labels(path,i):
     for file in os.listdir(path):
         abs_path = os.path.abspath(os.path.join(path, file))
         if os.path.isdir(abs_path):
@@ -132,41 +132,36 @@ def read_images_labels(path,i):
 
     return images, labels, listdir
 
-def read_main(path):
-    images, labels, listdir = read_images_labels(path,i=0)
-    images = np.array(images,dtype=np.float32)/255
-    labels = np_utils.to_categorical(labels, num_classes=20)
-    return images, labels
+    def read_main(path):
+        images, labels, listdir = read_images_labels(path,i=0)
+        images = np.array(images,dtype=np.float32)/255
+        labels = np_utils.to_categorical(labels, num_classes=20)
+        return images, labels
 
-def read_images(path):
-    images=[]
-    for i in range(990):
+    def read_images(path):
+        images=[]
+        for i in range(990):
         image = cv2.resize(cv2.imread(path+str(i+1)+'.jpg'), (64,64))
         images.append(image)
     images = np.array(images,dtype=np.float32)/255
     return images
 
-def transform(listdir,label,lenSIZE):
-    label_str = []
-    for i in range (lenSIZE):
+    def transform(listdir,label,lenSIZE):
+        label_str = []
+        for i in range (lenSIZE):
         temp = listdir[label[i]]
         label_str.append(temp)
     return label_str
 
-dataframe = pd.read_csv("listdir.txt",header=None)
-dataset=dataframe.values
-loadtxt=dataset[:,0]
-
-
-images = read_images('test/test/')
-print("\n",images.shape)
-model = load_model('model.h5')
-predict = model.predict_classes(images, verbose=1)
-label_str = transform(loadtxt, predict ,images.shape[0])
-
-
-raw_data={'id':range(1,991),
-          'character':label_str    
-}
-df=pandas.DataFrame(raw_data,columns=['id','character'])
-df.to_csv('test_score.csv',index=False,float_format='%.0f')
+    dataframe = pd.read_csv("listdir.txt",header=None)
+    dataset=dataframe.values
+    loadtxt=dataset[:,0]
+## 12.test丟進model預測出price,結果存進csv檔案
+    images = read_images('test/test/')
+    print("\n",images.shape)
+    model = load_model('model.h5')
+    predict = model.predict_classes(images, verbose=1)
+    label_str = transform(loadtxt, predict ,images.shape[0])
+    raw_data={'id':range(1,991),'character':label_str}
+    df=pandas.DataFrame(raw_data,columns=['id','character'])
+    df.to_csv('test_score.csv',index=False,float_format='%.0f')
