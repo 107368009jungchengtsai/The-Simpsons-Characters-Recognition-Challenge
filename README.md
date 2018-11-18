@@ -165,3 +165,7 @@
     raw_data={'id':range(1,991),'character':label_str}
     df=pandas.DataFrame(raw_data,columns=['id','character'])
     df.to_csv('test_score.csv',index=False,float_format='%.0f')
+ ![image](https://github.com/107368009jungchengtsai/The-Simpsons-Characters-Recognition-Challenge/blob/master/images.shape.png)
+## 13.Kaggle排名
+## 14.分析
+## 15.改進
