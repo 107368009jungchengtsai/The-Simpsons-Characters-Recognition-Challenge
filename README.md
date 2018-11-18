@@ -75,6 +75,7 @@
 ## 6.查看model
     model.summary()
     model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
+ ![image](https://github.com/107368009jungchengtsai/The-Simpsons-Characters-Recognition-Challenge/blob/master/model%E6%95%B8%E9%87%8F.png)
 ## 7.正規化
     datagen = ImageDataGenerator(zoom_range=0.2, width_shift_range=0.2, height_shift_range=0.2, horizontal_flip=True)
     datagen.fit(x_train)
