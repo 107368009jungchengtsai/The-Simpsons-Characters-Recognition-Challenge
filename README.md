@@ -111,4 +111,5 @@
     plt.xlabel('epoch')
     plt.legend(['train', 'test'], loc='upper left')
     plt.show()
-    ![image](https://github.com/107368009jungchengtsai/The-Simpsons-Characters-Recognition-Challenge/blob/master/%E5%9C%96%E8%A1%A8.png)
+    
+   ![image](https://github.com/107368009jungchengtsai/The-Simpsons-Characters-Recognition-Challenge/blob/master/%E5%9C%96%E8%A1%A8.png)
