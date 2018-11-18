@@ -1,6 +1,7 @@
 # The-Simpsons-Characters-Recognition-Challenge
 作法說明
-
+    
+    1.宣告和定義
     import os,sys
     import cv2
     import numpy as np
@@ -14,11 +15,10 @@
     from keras.preprocessing.image import ImageDataGenerator
 
 
-
+    2.讀檔
     images = []
     labels = []
     listdir = []
-
     def read_images_labels(path,i):
     for file in os.listdir(path):
         abs_path = os.path.abspath(os.path.join(path, file))    
