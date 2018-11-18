@@ -1,10 +1,10 @@
 # The-Simpsons-Characters-Recognition-Challenge
 作法說明
 
-流程圖
+## 流程圖
 ![image](https://github.com/107368009jungchengtsai/The-Simpsons-Characters-Recognition-Challenge/blob/master/%E6%B5%81%E7%A8%8B%E5%9C%96.jpg)
 
-1.宣告和定義
+## 1.宣告和定義
 
     import os,sys
     import cv2
@@ -17,7 +17,7 @@
     from keras.utils import np_utils
     from keras.optimizers import SGD, Adam
     from keras.preprocessing.image import ImageDataGenerator
-2.讀檔
+## 2.讀檔
 
     images = []
     labels = []
@@ -45,11 +45,11 @@
     labels = np_utils.to_categorical(labels, num_classes=20)
     np.savetxt('listdir.txt', listdir, delimiter = ' ',fmt="%s")
     return images, labels
-3.split train_data/valid_data
+## 3.split train_data/valid_data
 
     images, labels=read_main('train/characters-20')
     x_train, x_test, y_train, y_test = train_test_split(images, labels, test_size=0.1)
---4.印出x_train,y_train和x_test,y_test資料數量
+## 4.印出x_train,y_train和x_test,y_test資料數量
 
     print(x_train.shape)
     print(y_train.shape)
