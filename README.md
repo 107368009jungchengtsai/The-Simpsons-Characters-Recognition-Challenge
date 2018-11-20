@@ -168,4 +168,7 @@
  ![image](https://github.com/107368009jungchengtsai/The-Simpsons-Characters-Recognition-Challenge/blob/master/images.shape.png)
 ## 13.Kaggle排名
 ## 14.分析
+    這一次參考各種殼層寫法，發覺現在使用的這種表現較佳，做資料分析時，有把表現不佳的資料剃除，可是表現不佳，所以最後選擇不做剃除，可能是資料量太少的     關系，epochs提高有助於準確度。
 ## 15.改進
+    這一次的表現都算不錯，不過還沒試過pre-train的model，似乎是用pre-train的model正確率可以達到100%，下一次的作業可以使用看看pre-train的model，不     過老師上課也說過，環境不同，用自己的比較符合自己的需求。
+    
