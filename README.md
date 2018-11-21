@@ -167,6 +167,7 @@
     df.to_csv('test_score.csv',index=False,float_format='%.0f')
  ![image](https://github.com/107368009jungchengtsai/The-Simpsons-Characters-Recognition-Challenge/blob/master/images.shape.png)
 ## 13.Kaggle排名
+![image](https://github.com/107368009jungchengtsai/The-Simpsons-Characters-Recognition-Challenge/blob/master/kaggle.png)
 ## 14.分析
     這一次參考各種殼層寫法，發覺現在使用的這種表現較佳，做資料分析時，有把表現不佳的資料剃除，可是表現不佳，所以最後選擇不做剃除，可能是資料量太少的     關系，epochs提高有助於準確度。
 ## 15.改進
